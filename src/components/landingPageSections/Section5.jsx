@@ -1,6 +1,7 @@
 import React from "react";
 import { Box, Button, CardMedia, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { motion } from "framer-motion";
 
 const Section5 = () => {
   const theme = useTheme();
@@ -47,12 +48,17 @@ const Section5 = () => {
 
       {/* Second Row: Two Columns */}
       <Grid container item xs={12} md={6} justifyContent="center">
-        <CardMedia
-          component="img"
-          image="/images/img4.png"
-          alt="Image"
-          style={{ width: "100%", maxWidth: "430px", height: "auto" }}
-        />
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
+        >
+          <CardMedia
+            component="img"
+            image="/images/img4.png"
+            alt="Image"
+            style={{ width: "100%", maxWidth: "430px", height: "auto" }}
+          />
+        </motion.div>
       </Grid>
       <Grid item xs={12} md={6}>
         <Box
@@ -88,19 +94,27 @@ const Section5 = () => {
             Most frequently asked questions by visitors are well attended to by
             our chatbots, so you can focus on more productive tasks.
           </Typography>
-          <Button
-            color="inherit"
-            variant="outlined"
-            sx={{
-              marginTop: "20px",
-              borderRadius: "20px",
-              "&:hover": {
-                borderColor: theme.palette.blue.main,
-              },
-            }}
+          
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            style={{ display: "inline-block" }}
           >
-            Get Started
-          </Button>
+            <Button
+              color="inherit"
+              variant="outlined"
+              sx={{
+                marginTop: "20px",
+                borderRadius: "20px",
+                position: "relative",
+                "&:hover": {
+                  border: `1.5px solid ${theme.palette.blue.normal}`,
+                },
+              }}
+            >
+              Get Started
+            </Button>
+          </motion.div>
         </Box>
       </Grid>
 
@@ -140,28 +154,41 @@ const Section5 = () => {
             with Kluster AI. Collaborate with our effective AI to automate your
             business.
           </Typography>
-          <Button
-            color="inherit"
-            variant="outlined"
-            sx={{
-              marginTop: "20px",
-              borderRadius: "20px",
-              "&:hover": {
-                borderColor: theme.palette.blue.main,
-              },
-            }}
+          
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 300, damping: 10 }}
+            style={{ display: "inline-block" }}
           >
-            Get Started
-          </Button>
+            <Button
+              color="inherit"
+              variant="outlined"
+              sx={{
+                marginTop: "20px",
+                borderRadius: "20px",
+                position: "relative",
+                "&:hover": {
+                  border: `1.5px solid ${theme.palette.blue.normal}`,
+                },
+              }}
+            >
+              Get Started
+            </Button>
+          </motion.div>
         </Box>
       </Grid>
       <Grid item xs={12} md={6}>
-        <CardMedia
-          component="img"
-          image="/images/img5.png"
-          alt="Image"
-          style={{ width: "100%", maxWidth: "430px", height: "auto" }}
-        />
+        <motion.div
+          whileHover={{ scale: 1.1 }}
+          transition={{ type: "spring", stiffness: 300, damping: 10 }}
+        >
+          <CardMedia
+            component="img"
+            image="/images/img5.png"
+            alt="Image"
+            style={{ width: "100%", maxWidth: "430px", height: "auto" }}
+          />
+        </motion.div>
       </Grid>
     </Grid>
   );

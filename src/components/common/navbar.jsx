@@ -13,6 +13,7 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import AdbIcon from "@mui/icons-material/Adb";
 import ButtonLink from "../utils/ButtonLink";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 
 const pages = ["Home", "Services", "Pricing", "About Us", "Contact Us"];
@@ -153,50 +154,70 @@ const ResponsiveNavBar = () => {
             }}
           >
             {pages.map((page) => (
+              <motion.div
+                whileHover={{ scale: 1.1 }}
+                transition={{ type: "spring", stiffness: 300, damping: 10 }}
+                style={{ display: "inline-block" }}
+              >
+                <Button
+                  key={page}
+                  sx={{
+                    my: 2,
+                    color: theme.palette.text.primary,
+                    "&:hover": {
+                      background: theme.palette.grey.lightHover,
+                      color: theme.palette.text.secondary,
+                    },
+                  }}
+                >
+                  <ButtonLink page={page} />
+                </Button>
+              </motion.div>
+            ))}
+          </Box>
+
+          <Box
+            sx={{ flexGrow: 0, display: { xs: "none", md: "flex" }, gap: 1 }}
+          >
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              style={{ display: "inline-block" }}
+            >
               <Button
-                key={page}
+                component={Link}
+                to="/auth/signin"
+                sx={{ color: theme.palette.text.primary }}
+              >
+                Login
+              </Button>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 10 }}
+              style={{ display: "inline-block" }}
+            >
+              <Button
+                color="inherit"
+                component={Link}
+                to="/auth/signup"
+                variant="contained"
                 sx={{
-                  my: 2,
-                  color: theme.palette.text.primary,
+                  borderRadius: "20px",
+                  background: theme.palette.blue.normal,
                   "&:hover": {
-                    background: theme.palette.grey.lightHover,
+                    background: theme.palette.blue.hover,
                     color: theme.palette.text.secondary,
                   },
                 }}
               >
-                <ButtonLink page={page} />
+                Get Started
               </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0, display: { xs: "none", md: "flex" } }}>
-            <Button
-              component={Link}
-              to="/auth/signin"
-              sx={{ color: theme.palette.text.primary }}
-            >
-              Login
-            </Button>
-            <Button
-              color="inherit"
-              component={Link}
-              to="/auth/signup"
-              variant="contained"
-              sx={{
-                borderRadius: "20px",
-                background: theme.palette.blue.normal,
-                "&:hover": {
-                  background: theme.palette.blue.hover,
-                  color: theme.palette.text.secondary,
-                },
-              }}
-            >
-              Get Started
-            </Button>
+            </motion.div>
           </Box>
         </Toolbar>
       </Container>
     </AppBar>
   );
-}
+};
 export default ResponsiveNavBar;
